@@ -15,15 +15,15 @@ function draw() {
   for (var i = 0; i < 15; i ++){
     for (var j = 0; j < 15; j ++){
       grid[i][j].show();
-      if (grid[i][j].deadness != 2){
-        if (neighbourCount[i][j] >= 0 && neighbourCount[i][j] <=4){
+      if (grid[i][j].deadness != -1){
+        if (neighbourCount[i][j] >= 0 && neighbourCount[i][j] <=3){
           grid[i][j].deadness = 0;
         }
-        if (neighbourCount[i][j] >= 5 && neighbourCount[i][j] <=7){
+        if (neighbourCount[i][j] >= 4 && neighbourCount[i][j] <=6){
           grid[i][j].deadness = 1;
         }
-        if (neighbourCount[i][j] >=8){
-          grid[i][j].deadness = 2;
+        if (neighbourCount[i][j] >=7){
+          grid[i][j].deadness = -1;
         }
       }
       
@@ -100,15 +100,14 @@ Cell.prototype.show = function(){
     stroke('black');
     rect(this.x, this.y, this.w, this.w);
     textSize(15);
-    //stroke('red');
-    //text(this.deadness, this.x + this.w/2, this.y + this.w/2);
+
     if (this.deadness == 0){
       fill('green');
     }
     if (this.deadness == 1){
       fill('yellow');
     }
-    if (this.deadness == 2){
+    if (this.deadness == -1){
       fill('red');
     }
     rect(this.x,this.y,this.w,this.w);

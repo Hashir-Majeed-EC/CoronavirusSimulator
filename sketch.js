@@ -3,7 +3,7 @@ var w = 40;
 var neighbourCount = make2DArray();
 
 function setup() {
-  frameRate(2);
+  frameRate(5);
   createCanvas(800,789);
   background(51);
   grid = makeCells(grid, 75,100);
